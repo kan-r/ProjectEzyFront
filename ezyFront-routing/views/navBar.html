@@ -1,0 +1,17 @@
+<div class="topnav">
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#user">User</a></li>
+        <li>
+            <a class="disabled"><i>EzyFront</i> Welcome {appUser.userId | string : uppercase}</a>
+            <!-- <a href="#logout">Log out</a> -->
+        </li>
+    </ul>
+</div>
+
+<!-- this may be in a seperate file -->
+<script type="module">
+    //required for binding
+    import { $ezy } from './ezy_modules/ezy.js';
+</script>
+

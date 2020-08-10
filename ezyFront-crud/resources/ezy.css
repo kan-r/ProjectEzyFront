@@ -1,0 +1,287 @@
+/* -------------------- Common -------------------- */
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 0.75rem;
+}
+
+.container {
+    width: 100%;
+    padding-top: 0.5rem;
+    margin: auto;
+}
+
+
+/* -------------------- Navigation -------------------- */
+
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+    border-radius: 0.25rem;
+  }
+
+.topnav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #00394d;
+    font-weight: bold;
+}
+  
+.topnav li {
+    float: left;
+    border-right:1px solid #bbb;
+}
+  
+.topnav li:last-child {
+    float: right;
+    border-right: none;
+}
+  
+.topnav li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+}
+  
+.topnav li a:hover, .dropdown:hover .dropbtn {
+    background-color: #0086b3;
+}
+  
+.topnav li.dropdown {
+    display: inline-block;
+}
+  
+.topnav .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 10rem;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0,0,0,0.2);
+    z-index: 1;
+}
+  
+.topnav .dropdown-content a {
+    color: black;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+  
+.topnav .dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.topnav .dropdown-content a.disabled {
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+    color: #C6C6C6;
+}
+  
+.topnav .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.topnav a.disabled {
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+    color: #C6C6C6;
+}
+
+
+/* -------------------- Message -------------------- */
+
+.message {
+    width: 80%;
+    position: relative;
+    margin-left: auto; 
+    margin-right: auto;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+    padding: 0.75rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+}
+
+.message-info {
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+}
+  
+.message-error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+
+/* -------------------- Buttons ------------------------- */ 
+
+.button-region {
+    padding: 0.25rem 0 0.25rem 0;
+}
+
+.button {
+    font-weight: bold;
+    text-decoration: none;
+    background-color:#006080;
+    color: white;
+    padding: 0.6em 0.75em 0.6em 0.75em;
+    border-top: 1px solid #CCCCCC;
+    border-right: 1px solid #333333;
+    border-bottom: 1px solid #333333;
+    border-left: 1px solid #CCCCCC;
+    width: 4rem;
+    float: left;
+    text-align: center;
+    border-radius: 0.25rem;
+}
+
+input[type=submit] {
+    width: 5.2rem;  height: 1.9rem;
+}
+
+.button:hover {
+    background-color: #0086b3;
+    cursor: grab;
+}
+
+.button-disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    background-color: #a8b3bd;
+    color: whitesmoke;
+}
+
+.link-disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    color: #C6C6C6;
+    text-decoration: underline;
+}
+
+
+/* -------------------- Report -------------------- */
+
+.report-region {
+    padding-top: 0.25rem;
+}
+
+.report-region-2 {
+    padding-top: 1.8rem;
+}
+
+.report-standard {
+    empty-cells: show;
+    border: 1px solid #999;
+    border-collapse: collapse;
+}
+
+.report-standard th {
+    padding: 0.5rem 0.5rem 0.5rem;
+    border-bottom: 1px solid #999;
+    background-color: #0086b3;
+    color: white;
+    text-align: left;
+}
+
+.report-standard th a {
+    color:#333;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
+    text-decoration: underline;
+}
+
+.report-standard td {
+    padding: 0.25rem 0.5rem;
+    border-bottom: 1px solid #DDD;
+    text-align: left;
+}
+
+.report-standard td a {
+    text-decoration: underline;
+}
+
+.report-standard td a:hover {
+    color: red;
+}
+
+.report-standard tr td {
+    border-bottom: 1px solid #DDD;
+}
+
+/* Hide Last Border Bottom */
+.report-standard tr:last-child td {
+    border-bottom: none;
+}
+
+.report-standard tr:nth-child(even) {
+    background-color: #FAFAFA;
+}
+
+.report-standard tr:hover {
+    background-color: #f5f5f5;
+}
+
+
+/* -------------------- Form -------------------- */
+
+.form-region {
+    padding-top: 0.25rem;
+}
+
+.form-region-2 {
+    padding-top: 1.8rem;
+}
+
+.form-standard {
+    empty-cells: show;
+    border: 1px solid #999;
+    border-collapse: collapse;
+}
+
+.form-standard th {
+    padding: 0.5rem 0.5rem 0.5rem;
+    border-bottom: 1px solid #999;
+    background-color: #0086b3;
+    color: white;
+    text-align: left;
+}
+
+.form-standard th a {
+    color:#333;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
+    text-decoration: underline;
+}
+
+.form-standard td {
+    background-color: #FFF;
+    padding: 0.25rem 0.5rem;
+    border-bottom: 1px solid #DDD;
+    text-align: left;
+}
+
+.form-standard tr td {
+    border-bottom: 1px solid #DDD;
+}
+
+/* Hide Last Border Bottom */
+.form-standard tr:last-child td {
+    border-bottom: none;
+}
+
+.form-standard textarea {
+    width: 12rem;
+}
+
+/* -------------------- Demo -------------------- */
+
+.demo {
+    color: #0086b3;
+}

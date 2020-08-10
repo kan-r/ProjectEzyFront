@@ -1,0 +1,36 @@
+<div class="container">
+    <div id="nav" ezy-bind></div>
+    <div id="out" ezy-bind>Content of the route url goes here</div>
+</div>
+
+<!-- this may be in a seperate file -->
+<script type="module">
+    
+    import { $ezy } from './ezy_modules/ezy.js';
+
+    // set up routing
+    $ezy.router.routes = [
+        {
+            path: '',
+            redirectTo: '#home'
+        },
+        {
+            path: '#home',
+            url: './views/home.html'
+        },
+        {
+            path: '#user',
+            url: './views/user.html'
+        }
+    ]
+
+    // set up app user, this will be changed when login functionality is done
+    $ezy.model.appUser = {
+        userId: 'ADMIN',
+        pword: '',
+        isAdmin: true
+    }
+
+    $ezy.load('#nav', './views/navBar.html');
+
+</script>

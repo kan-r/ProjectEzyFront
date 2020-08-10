@@ -1,0 +1,75 @@
+<div class="button-region">
+    <a ezy-bind-show={appUser.isAdmin} href = "#userForm" class="button">Create</a>
+    <a ezy-bind-hide={appUser.isAdmin} href = "#userForm" class="button button-disabled">Create</a>
+ </div>
+<div class="report-region-2">
+    <table class="report-standard">
+        <tr >
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>User ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Active</th>
+            <th>Date Created</th>
+            <th>User Created</th>
+            <th>Date Modified</th>
+            <th>User Modified</th>
+        </tr>
+        <tr ezy-bind-list="usr in userList">
+            <td><a ezy-bind-show={appUser.isAdmin} href = "#userForm/{usr.userId}">Edit</a></td>
+            <td><a ezy-bind-hide={appUser.isAdmin} href = "#userForm/{usr.userId}" class="link-disabled">Edit</a></td>
+            <td><a ezy-bind-show={appUser.isAdmin} href = "#user/{usr.userId}">Delete</a></td>
+            <td><a ezy-bind-hide={appUser.isAdmin} href = "#user/{usr.userId}" class="link-disabled">Delete</a></td>
+            <td>{usr.userId}</td>
+            <td>{usr.firstName}</td>
+            <td>{usr.lastName}</td>
+            <td><input type="checkbox" id="active" value="true" ezy-bind-value={usr.active} disabled></td>
+            <td>{usr.dateCrt | datetime : short}</td>
+            <td>{usr.userCrtObj.firstName} {usr.userCrtObj.lastName}</td>
+            <td>{usr.dateMod | datetime : short}</td>
+            <td>{usr.userModObj.firstName} {usr.userModObj.lastName}</td>
+       </tr>
+    </table>
+</div> 
+
+<!-- this may be in a seperate file -->
+<script type="module">
+   
+    import { $ezy } from './ezy_modules/ezy.js';
+    import { userService } from './services/user-service.js';
+
+    $ezy.model.message.reset();
+
+    $ezy.model.userList = [];
+
+    const userId = $ezy.router.route.params.userId;
+    
+    if(userId !== undefined){
+        // delete user
+        userService.deleteUser(userId)
+            .then(res => {
+                loadUserList();
+            })
+            .catch(err => {
+                $ezy.model.message.setError(err);
+            });
+    }else{
+        // load user list
+        loadUserList();
+    }
+
+    function loadUserList(){
+        userService.getUserList()
+            .then(res => {
+                $ezy.model.message.reset();
+                $ezy.model.userList = res;
+            })
+            .catch(err => {
+                $ezy.model.message.setError(err);
+            });
+    }
+
+</script>

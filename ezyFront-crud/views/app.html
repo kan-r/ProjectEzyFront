@@ -1,0 +1,70 @@
+<div class="container">
+    <div id="nav" ezy-bind></div>
+    <div id="msg" ezy-bind></div>
+    <div id="out" ezy-bind></div>
+</div>
+
+<!-- this may be in a seperate file -->
+<script type="module">
+    
+    import { $ezy } from './ezy_modules/ezy.js';
+
+    // set up routing
+    $ezy.router.routes = [
+        {
+            path: '',
+            redirectTo: '#home'
+        },
+        {
+            path: '#home',
+            url: './views/home.html'
+        },
+        {
+            path: '#user',
+            url: './views/user.html'
+        },
+        {
+            path: '#user/:userId',
+            url: './views/user.html'
+        },
+        {
+            path: '#userForm',
+            url: './views/userForm.html'
+        },
+        {
+            path: '#userForm/:userId',
+            url: './views/userForm.html'
+        }
+    ]
+
+    // set up authentication
+    $ezy.router.authenticateRoute = (route) => {
+    
+        const paths = [
+            '#user/:userId',
+            '#userForm',
+            '#userForm/:userId'
+        ]
+
+        // requires ADMIN privilage
+        if(paths.includes(route.path)){
+            if(!$ezy.model.appUser.isAdmin){
+                route.redirectTo = "#user";
+                return false;
+            }
+        }
+        
+        return true;
+    }
+
+    // set up app user, this will be changed when login functionality is done
+    $ezy.model.appUser = {
+        userId: 'ADMIN',
+        pword: '',
+        isAdmin: true
+    }
+
+    $ezy.load('#nav', './views/navBar.html');
+    $ezy.load('#msg', './views/message.html');
+
+</script>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Kan Ranganathan">
+        <meta name="description" content="Sample app using ezyJS">
+
+        <!-- href relative to the current path -->
+        <link rel="icon" href="resources/ezy.ico">
+        <link rel="stylesheet" href="resources/ezy.css">
+        
+        <title>EzyFront</title>
+    </head>
+    <body>
+      <div id="root"></div>
+
+      <!-- this may be in a seperate file -->
+      <script type="module">
+
+        // files are relative to the current path
+        import { $ezy } from './ezy_modules/ezy.js';
+        $ezy.load('#root', './views/app.html');
+        
+      </script>
+    </body>
+</html>

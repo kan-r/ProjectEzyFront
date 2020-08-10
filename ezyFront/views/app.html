@@ -1,0 +1,33 @@
+<div class="container">
+    <div id="nav" ezy-bind>
+        <!-- Navigation bar may be loaded here -->
+    </div>
+    <div id="msg" ezy-bind>
+        <!-- Message may be loaded here -->
+    </div>
+    <div id="out" ezy-bind>
+        <!-- Content of the route url is loaded here -->
+    </div>
+</div>
+
+<!-- this may be in a seperate file -->
+<script type="module">
+    
+    // this is the only import you need from the ezyFront frame work
+    import { $ezy } from './ezy_modules/ezy.js';
+
+    // set up routing
+    $ezy.router.routes = [
+        {
+            path: '',
+            redirectTo: '#welcome'
+        },
+        {
+            path: '#welcome',
+            url: './views/welcome.html'
+        }
+    ]
+
+    $ezy.load('#msg', './views/message.html');
+
+</script>
